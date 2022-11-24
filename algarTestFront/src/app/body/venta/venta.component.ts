@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Cliente } from 'src/app/models/cliente';
 import { Detalle } from 'src/app/models/detalle';
 import { Orden } from 'src/app/models/orden';
 import { Producto } from 'src/app/models/producto';

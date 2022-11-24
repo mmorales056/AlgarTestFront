@@ -8,7 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavComponent } from './body/nav/nav.component';
 import { ProductosComponent } from './body/productos/productos.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ClientesComponent } from './body/clientes/clientes.component';
 import { VentaComponent } from './body/venta/venta.component';
 
 
@@ -19,7 +18,6 @@ import { VentaComponent } from './body/venta/venta.component';
     BodyComponent,
     NavComponent,
     ProductosComponent,
-    ClientesComponent,
     VentaComponent
   ],
   imports: [
