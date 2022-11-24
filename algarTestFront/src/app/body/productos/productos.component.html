@@ -1,0 +1,81 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Codigo</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">--</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dat of productos">
+            <th>{{dat.codigo}}</th>
+            <td>{{dat.nombre}}</td>
+            <td>{{dat.precio}}</td>
+            <td><i class="fa-solid fa-pen-to-square"  data-bs-toggle="modal" data-bs-target="#editModal" (click)="setForm(dat)"></i></td>
+        </tr>
+    </tbody>
+</table>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Nuevo Producto
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="form"  (ngSubmit)="onSubmit(form.value)">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Codigo</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" formControlName="codigo" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" formControlName="nombre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Precio</label>
+                        <input type="number" class="form-control" id="exampleInputEmail1" formControlName="precio">
+                    </div>                                    
+                    <button type="submit" class="btn btn-primary"  data-bs-dismiss="modal">Guardar</button>
+                </form>
+            </div>
+           
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="form"  (ngSubmit)="onSubmitEdit(form.value)">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Codigo</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" formControlName="codigo" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" formControlName="nombre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Precio</label>
+                        <input type="number" class="form-control" id="exampleInputEmail1" formControlName="precio">
+                    </div>                                    
+                    <button type="submit" class="btn btn-primary"  data-bs-dismiss="modal">Actualizar</button>
+                </form>
+            </div>
+           
+        </div>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<div class="container mt-5">
+    <div class="row" *ngIf="!statusVenta">
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary" (click)="nuevoPedido()"> Nuevo Pedido</button>
+        </div>
+
+    </div>
+    <div class="row" *ngIf="statusVenta">
+        <div class="col-12">
+            <form [formGroup]="formDetalle" (ngSubmit)="onSubmitDetalleVenta(formDetalle.value)" class="mt-4">
+                <div class="row">
+                    <div class="col-2">
+                        <label for="">Orden N°</label>
+                        <input type="number" class="form-control" id="cantidad" min="1" placeholder="Cantidad" readonly
+                            value="{{numOrden}}">
+                    </div>
+                    <div class="col-2">
+                        <label for="">Producto</label>
+                        <select class="form-select" aria-label="Default select example" formControlName="Producto_id">
+                            <option value="{{dato.id}}" *ngFor="let dato of productos">{{dato.nombre}}</option>
+                        </select>
+                    </div>
+                    <div class="col-2">
+                        <label for="">Cantidad</label>
+                        <input type="number" class="form-control" id="cantidad" min="1" placeholder="Cantidad"
+                            formControlName="Cantidad">
+                        <input type="number" class="form-control d-none"  min="1" placeholder="Cantidad" formControlName="Orden_id">
+                    </div>
+                    <div class="col-2 mt-4">
+                        <button type="submit" class="btn btn-primary">Insertar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let dat of detalle">
+                        <th>{{dat.nombre}}</th>
+                        <td>{{dat.cantidad}}</td>
+                        <td>{{dat.total}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <span> Total {{total}}</span>
+            <hr>
+            <form [formGroup]="formGuardar" (ngSubmit)="guardar(formGuardar.value)">
+                <div class="row">
+                    <div class="col-3">
+                        <label for="">Cedula</label>
+                        <input type="text" class="form-control" id="cedula" placeholder="Cedula" formControlName="Cedula">
+                    </div>
+                    <div class="col-3">
+                        <label for="">Direccion</label>
+                        <input type="text" class="form-control" id="direccion" placeholder="Direccion" formControlName="Direccion">
+                        <input type="number" class="form-control d-none"  min="1" placeholder="Cantidad" formControlName="NumeroOrden">
+                    </div>
+                    <div class="col-3 mt-4">
+                        <button class="btn btn-success" [disabled]="!formGuardar.valid" >Guardar</button>
+                    </div>
+
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</div>

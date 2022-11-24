@@ -1,0 +1,16 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">cedula</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">direccion</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dat of clientes">
+            <th>{{dat.cedula}}</th>
+            <td>{{dat.nombre}}</td>
+            <td>{{dat.direccion}}</td>           
+    </tbody>
+</table>
